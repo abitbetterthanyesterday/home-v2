@@ -1,0 +1,17 @@
+---
+import {Text} from '~/components/ui/text'
+import {Link} from "../ui/link";
+import {Mail} from "lucide-react";
+interface Props {
+   href: string;
+    label: string;
+}
+
+const {href , label} = Astro.props;
+---
+<Link href={href} display="flex" gap="2" css={{_hover:{color: 'accent.default'}}}>
+    <slot />
+    <Text size="lg">
+    {label}
+    </Text>
+</Link>

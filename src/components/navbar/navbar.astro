@@ -1,0 +1,23 @@
+---
+import {Flex} from "@styled-system/jsx"
+import {Home, Briefcase, Newspaper, Goal, Mail} from 'lucide-react'
+import {Text} from "~/components/ui/text";
+import Link from "~/components/navbar/navlink.astro"
+---
+<Flex flexDir="column" gap="4">
+    <Link href="/" label="Home">
+        <Home/>
+    </Link>
+    <Link href="/work" label="Work">
+        <Briefcase/>
+    </Link>
+    <Link href="/blog" label="Articles">
+        <Newspaper/>
+    </Link>
+    <Link href="/now" label="Now">
+        <Goal/>
+    </Link>
+    <Link href="/contact" label="Contact">
+        <Mail/>
+    </Link>
+</Flex>

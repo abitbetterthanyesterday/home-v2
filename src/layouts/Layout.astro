@@ -1,55 +1,69 @@
 ---
-import {Box, Flex, VStack} from "@styled-system/jsx";
+import {Box, Flex, VStack, Container} from "@styled-system/jsx";
 import {Avatar} from "~/components/ui/avatar";
-import { Text } from "~/components/ui/text";
+import {Text} from "~/components/ui/text";
 import {Link} from "~/components/ui/link";
-import {Home} from 'lucide-react'
+import {Button} from "~/components/ui/button";
+import {Heading} from "~/components/ui/heading";
+import {Home, Briefcase, CableCar, Newspaper, Goal, Mail, Download} from 'lucide-react'
 
 interface Props {
-	title: string;
+    title: string;
 }
 
-const { title } = Astro.props;
+const {title} = Astro.props;
 import "../index.css"
+import '@fontsource-variable/plus-jakarta-sans';
+import Navbar from "../components/navbar/navbar.astro";
 ---
 
 <!doctype html>
 <html lang="en" class="dark">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-	<Flex bg="bg.canvas">
-		<Flex borderRight="1px solid" borderColor="border.default" as="nav" minH="100vh" flexDir="column" px="12">
-			<Box>
-				Logo
-			</Box>
-			<Flex>
-				<Avatar>Aloys</Avatar>
-				<VStack>
-					<Text>Aloys Berger</Text>
-					<Text>MVP builder</Text>
-				</VStack>
-			</Flex>
-			<Flex flexDir="column">
-				<Link href="/">
-					<Home/>
-					Home
-				</Link>
-				<a href="/">Articles</a>
-				<a href="/">Now</a>
-				<a href="/">Project</a>
-				<a href="/">Contact</a>
-			</Flex>
-		</Flex>
-		<Box as="main" minH="full" overflowY="auto">
-			<slot/>
-		</Box>
-	</Flex>
-	</body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Astro description"/>
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="generator" content={Astro.generator}/>
+    <title>{title}</title>
+</head>
+<Container as="body" bg="bg.canvas">
+    <Flex minH="100vh">
+        <Flex direction="column" gap="4" borderRight="1px solid" borderColor="border.default">
+            <Flex border="1px solid" borderRight="none" borderColor="border.default" as="nav" flexDir="column" pl="8"
+                  pr="16" rounded="md" flexGrow="1" py="12">
+                <Flex gap="2" align="start">
+                    <Box color="orange.400" py="1">
+                        <CableCar size={58}
+                                  strokeWidth={1}
+                        />
+                    </Box>
+                    <Flex direction="column" gap="0">
+                        <Heading size="4xl" fontWeight="black">
+                            Gondola
+                        </Heading>
+                        <Heading size="4xl" fontWeight="thin" color="fg.subtle">
+                            Studio
+                        </Heading>
+                    </Flex>
+                </Flex>
+                <Flex gap="4" my="12">
+                    <Avatar name="Aloys Berger" size="lg"/>
+                    <Flex direction="column" gap="0">
+                        <Text fontWeight="bold" size="md">Aloys Berger</Text>
+                        <Text fontWeight="semibold" size="sm">MVP builder</Text>
+                    </Flex>
+                </Flex>
+                <Navbar/>
+            </Flex>
+            <Button variant="outline" size="xl" my="4" mx="4" mb="8" rounded="xl">
+                <Download/>
+                Download CV
+            </Button>
+        </Flex>
+        <Box as="main" minH="full" overflowY="auto" borderRight="1px solid" borderColor="border.default" flexGrow="1">
+            <slot/>
+        </Box>
+    </Flex>
+</Container>
 </html>
