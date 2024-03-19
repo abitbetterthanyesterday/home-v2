@@ -1,9 +1,73 @@
 ---
+import {Rocket, Send} from 'lucide-react'
 import Layout from '../layouts/Layout.astro';
+import {Textarea} from '~/components/ui/textarea';
+import {Stack, Box, HStack, Flex, Grid, GridItem} from "@styled-system/jsx"
+import {Heading} from "~/components/ui/heading";
+import {Button} from "~/components/ui/button";
+import {Icon} from "~/components/ui/icon";
+import {FormLabel} from "~/components/ui/form-label";
+import {Input} from "~/components/ui/input";
+import {Text} from "~/components/ui/text";
+import * as Card from '~/components/ui/card'
 ---
 
 <Layout title="Welcome!">
-    <p>Home</p>
-
+    <Flex justify="space-between" direction="column" h="100vh" px="24" py="20" overflowY="auto">
+        <Stack gap="4">
+            <Heading size="7xl">You have an idea, we have the know-how. Let's chat.</Heading>
+            <Text size="xl" color="fg.muted">Gondola Studio is your partner for all web-based projects. From design, to
+                completion.
+            </Text>
+            <Text size="xl" color="fg.muted" display="flex" gap="2">
+                Let's get your idea off the ground.
+                <Box color="accent.default" py="1" as="span">
+                    <Rocket/>
+                </Box>
+            </Text>
+        </Stack>
+        <Box h="1px" w="full" px="8" bg="border.default" my="12"/>
+        <Stack border="1px solid" borderColor="border.default" p="12" shadow="2xl" rounded="lg">
+            <Heading size="5xl">Tell us about your project</Heading>
+            <Text size="xl" color="fg.muted">We will get back to you within 48 hours.</Text>
+            <Stack gap="4" pt="6">
+                <FormLabel htmlFor="name">Name</FormLabel>
+                <Input id="name" placeholder="John Doe"/>
+                <FormLabel htmlFor="email">Email</FormLabel>
+                <Input id="email" placeholder="johndoe@email.com"/>
+                <FormLabel htmlFor="message">Message</FormLabel>
+                <Textarea rows="8" placeholder="Hey Aloys, I have this idea of [...]. Can you help?"/>
+                <Button variant="solid" size="xl" mt="6">Send
+                    <Send/>
+                </Button>
+            </Stack>
+        </Stack>
+        <Box h="1px" w="full" px="8" bg="border.default" my="12"/>
+        <Stack >
+            <Heading size="4xl">Latest articles</Heading>
+            <HStack overflowX="auto" maxW="full">
+                <Stack border="1px solid" borderColor="border.default" rounded="lg" p="12" flexShrink="0">
+                    <Text>My article</Text>
+                    <Text>The summary</Text>
+                </Stack>
+                <Stack border="1px solid" borderColor="border.default" rounded="lg" p="12" flexShrink="0">
+                    <Text>My article</Text>
+                    <Text>The summary</Text>
+                </Stack>
+                <Stack border="1px solid" borderColor="border.default" rounded="lg" p="12" flexShrink="0">
+                    <Text>My article</Text>
+                    <Text>The summary</Text>
+                </Stack>
+                <Stack border="1px solid" borderColor="border.default" rounded="lg" p="12" flexShrink="0">
+                    <Text>My article</Text>
+                    <Text>The summary</Text>
+                </Stack>
+                <Stack border="1px solid" borderColor="border.default" rounded="lg" p="12" flexShrink="0">
+                    <Text>My article</Text>
+                    <Text>The summary</Text>
+                </Stack>
+            </HStack>
+        </Stack>
+    </Flex>
 </Layout>
 

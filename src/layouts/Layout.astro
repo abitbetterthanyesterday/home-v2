@@ -1,5 +1,5 @@
 ---
-import {Box, Flex, VStack, Container} from "@styled-system/jsx";
+import {Box, Flex, VStack,Stack, Container} from "@styled-system/jsx";
 import {Avatar} from "~/components/ui/avatar";
 import {Text} from "~/components/ui/text";
 import {Link} from "~/components/ui/link";
@@ -31,9 +31,9 @@ import Navbar from "../components/navbar/navbar.astro";
     <Flex minH="100vh">
         <Flex direction="column" gap="4" borderRight="1px solid" borderColor="border.default">
             <Flex border="1px solid" borderRight="none" borderColor="border.default" as="nav" flexDir="column" pl="8"
-                  pr="16" rounded="md" flexGrow="1" py="12">
+                  pr="16" rounded="md" flexGrow="1" py="12" gap="16">
                 <Flex gap="2" align="start">
-                    <Box color="orange.400" py="1">
+                    <Box color="accent.default" py="1">
                         <CableCar size={58}
                                   strokeWidth={1}
                         />
@@ -47,21 +47,27 @@ import Navbar from "../components/navbar/navbar.astro";
                         </Heading>
                     </Flex>
                 </Flex>
-                <Flex gap="4" my="12">
+                <Stack gap="4">
+                <Heading color="fg.muted" fontWeight="thin">Team</Heading>
+                <Flex gap="4" >
                     <Avatar name="Aloys Berger" size="lg"/>
                     <Flex direction="column" gap="0">
                         <Text fontWeight="bold" size="md">Aloys Berger</Text>
-                        <Text fontWeight="semibold" size="sm">MVP builder</Text>
+                        <Text fontWeight="extralight" size="sm">Idea to App Converter</Text>
                     </Flex>
                 </Flex>
+                </Stack>
+                <Stack gap="4">
+                    <Heading color="fg.muted" fontWeight="thin">Links</Heading>
                 <Navbar/>
+                </Stack>
             </Flex>
             <Button variant="outline" size="xl" my="4" mx="4" mb="8" rounded="xl">
                 <Download/>
                 Download CV
             </Button>
         </Flex>
-        <Box as="main" minH="full" overflowY="auto" borderRight="1px solid" borderColor="border.default" flexGrow="1">
+        <Box as="main" minH="full" overflowY="auto" borderRight="1px solid" borderColor="border.default" flexGrow="1" >
             <slot/>
         </Box>
     </Flex>
