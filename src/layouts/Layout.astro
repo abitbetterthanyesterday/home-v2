@@ -1,0 +1,55 @@
+---
+import {Box, Flex, VStack} from "@styled-system/jsx";
+import {Avatar} from "~/components/ui/avatar";
+import { Text } from "~/components/ui/text";
+import {Link} from "~/components/ui/link";
+import {Home} from 'lucide-react'
+
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+import "../index.css"
+---
+
+<!doctype html>
+<html lang="en" class="dark">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+	<Flex bg="bg.canvas">
+		<Flex borderRight="1px solid" borderColor="border.default" as="nav" minH="100vh" flexDir="column" px="12">
+			<Box>
+				Logo
+			</Box>
+			<Flex>
+				<Avatar>Aloys</Avatar>
+				<VStack>
+					<Text>Aloys Berger</Text>
+					<Text>MVP builder</Text>
+				</VStack>
+			</Flex>
+			<Flex flexDir="column">
+				<Link href="/">
+					<Home/>
+					Home
+				</Link>
+				<a href="/">Articles</a>
+				<a href="/">Now</a>
+				<a href="/">Project</a>
+				<a href="/">Contact</a>
+			</Flex>
+		</Flex>
+		<Box as="main" minH="full" overflowY="auto">
+			<slot/>
+		</Box>
+	</Flex>
+	</body>
+</html>

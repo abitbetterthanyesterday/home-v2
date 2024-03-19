@@ -1,0 +1,31 @@
+{
+  "name": "abitbetterthanyester.day",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "prepare": "panda codegen",
+    "dev": "concurrently -c cyan,yellow -n astro,panda \"astro dev\" \"panda --watch\"",
+    "start": "pnpm run dev",
+    "build": "astro check && astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@ark-ui/react": "^2.2.3",
+    "@astrojs/check": "^0.5.9",
+    "@astrojs/react": "^3.1.0",
+    "@types/react": "^18.2.67",
+    "@types/react-dom": "^18.2.22",
+    "astro": "^4.5.6",
+    "concurrently": "^8.2.2",
+    "lucide-react": "^0.359.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.4.2",
+    "vite-tsconfig-paths": "^4.3.2"
+  },
+  "devDependencies": {
+    "@pandacss/dev": "^0.35.0",
+    "@park-ui/panda-preset": "^0.36.1"
+  }
+}
